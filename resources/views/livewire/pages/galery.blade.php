@@ -19,17 +19,19 @@
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 h-100"> <!-- galeria de fotos -->
                 <div class="row row-cols-1 row-cols-md-4 g-4 mt-2">
                     @foreach ($photos as $item)
-                        <div class="col">
-                          <div class="card">
-                            <img src="{{asset('storage/'.$item->url)}}" class="card-img-top" alt="...">
-                            {{-- <div class="card-body">
-                                ds
-                            </div> --}}
-                            <div class="card-footer">
-                                <small class="text-muted text-capitalize">Autor: {{$item->user->name}}</small>
-                              </div>
-                          </div>
-                        </div>    
+                        @if ($item->state == 'active')
+                            <div class="col">
+                                <div class="card">
+                                  <img src="{{asset('storage/'.$item->url)}}" class="card-img-top" alt="...">
+                                  {{-- <div class="card-body">
+                                      ds
+                                  </div> --}}
+                                  <div class="card-footer">
+                                      <small class="text-muted text-capitalize">Autor: {{$item->user->name}}</small>
+                                    </div>
+                                </div>
+                            </div>  
+                        @endif  
                     @endforeach
                 </div>
             </div>
